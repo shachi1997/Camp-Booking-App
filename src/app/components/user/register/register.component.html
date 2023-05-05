@@ -1,0 +1,49 @@
+<div class="image">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4 col-sm-4 col-xs-12"></div>
+            <div class="col-md-4 col-sm-4 col-xs-12">
+                <form class="form-container" novalidate [formGroup]="RegisterForm" id="form" (ngSubmit)="onFormSubmit()">
+                    <div class="caption">
+                        <h1 class="heading">Register</h1>
+                    </div>
+                    <br/>
+                    <br/>
+                    <div class="form-group">
+                        <div class="input-group-prepend md-4">
+                            <span>
+                                    <i class="fas fa-envelope fa-2x"></i>
+                                 </span>
+                            <input type="text" class="form-control" id="email" placeholder="Email Address" formControlName="EmailID">
+                        </div>
+                    </div>
+                    <div *ngIf="validate.EmailID.touched && validate.EmailID.invalid" class="alert alert-danger">
+                        <div *ngIf="validate.EmailID.errors.required">Email is required.</div>
+                        <div *ngIf="validate.EmailID.errors.email">Please, enter valid email address.</div>
+                    </div>
+                    <br/>
+                    <div class="form-group">
+                        <div class="input-group-prepend md-4">
+                            <span>
+                                    <i class="fas fa-lock fa-2x"></i>
+                                </span>
+                            <input type="password" class="form-control" id="password" placeholder="Password" formControlName="Password">
+                        </div>
+                    </div>
+                    <div *ngIf="validate.Password.touched && validate.Password.invalid" class="alert alert-danger">
+                        <div *ngIf="validate.Password.errors.required">Password is required.</div>
+                        <div *ngIf="validate.Password.errors.minlength">Password should be of 8 characters</div>
+                        <div *ngIf="validate.Password.errors.minlength">Password must have at-least 1 special character, 1 number and 1 lowercase alphabet 1 upper alphabet</div>
+                    </div>
+                    <br/>
+                    <button class="btn btn-primary btn-block" type="submit" [disabled]="!RegisterForm.valid">Register</button>
+                    <div>
+                        <p class="option">Already a user?
+                            <button class="btn btn-link" routerLink='/login'>Login</button>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

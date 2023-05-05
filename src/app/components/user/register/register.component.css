@@ -1,0 +1,51 @@
+* {
+    align-items: center;
+}
+
+i {
+    color: black;
+}
+
+form {
+    background-color: gray;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+span {
+    color: #fff;
+    padding: 7px;
+    margin-right: 7px;
+    border-radius: 7px 7px 7px 7px;
+    -moz-border-radius: 7px 7px 7px 7px;
+    -webkit-border-radius: 7px 7px 7px 7px;
+    border: 0px solid #000000;
+}
+
+.heading {
+    color: black;
+    text-shadow: 3px 3px 6px rgba(131, 154, 186, 1);
+    text-align: center;
+}
+
+.image {
+    height: 40em;
+    background-size: cover;
+    width: auto;
+    background-image: url('../../../../assets/camp7.jpg');
+    background-position: 50% 50%;
+}
+
+.form-container {
+    border: 0px #fff;
+    padding: 60px 40px;
+    border-style: solid;
+    margin-top: 7vh;
+    opacity: 0.9;
+    -webkit-box-shadow: 7px 17px 33px 22px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 7px 17px 33px 22px rgba(0, 0, 0, 0.75);
+    box-shadow: 7px 17px 33px 22px rgba(0, 0, 0, 0.75);
+}
+
+.option {
+    color: white;
+}

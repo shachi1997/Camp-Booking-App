@@ -1,0 +1,15 @@
+.container {
+    margin-top: 49px;
+}
+
+#image {
+    border-radius: 20%;
+}
+
+.addImg {
+    margin-left: 10px;
+    font-size: 28px;
+    position: absolute;
+    color: black;
+    z-index: 2;
+}

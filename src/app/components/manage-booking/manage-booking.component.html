@@ -1,0 +1,63 @@
+<div class="row">
+    <div class="col">
+        <div class="container">
+            <div class="container-fluid">
+                <div class="card text-white bg-secondary mb-3" style="width: 28rem; margin-top: 35px; height: 470px;">
+                    <div class="card-body">
+                        <div>
+                            <h1>Manage your bookings anytime anywhere</h1>
+                            <div class="lead">
+                                You can delete your upcoming bookings by entering your Booking Reference Number in the given field, or you can rate us if you're already been there.
+
+                            </div>
+                        </div>
+                        <br>
+
+                        <form class="needs-validation" novalidate [formGroup]="FetchForm">
+                            <label>Enter Booking Reference Number</label>
+                            <br>
+                            <div class="form-group form-group lg">
+                                <input type="text" id="no" class="form-control" formControlName=BookingRefNo>
+                            </div>
+                            <button class="btn btn-dark" (click)="fetchBooking()">Fetch</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="container-fluid" id="myDiv" *ngIf="detailsCard">
+            <div class="card text-white bg-secondary mb-3" style="max-width: 22rem; margin-top: 35px;">
+                <div class="card-header">Your Booking Details</div>
+                <div class="card-body">
+                    <p class="card-text">Billing Address: {{billingAddress}}</p>
+                    <p class="card-text">State: {{state}}</p>
+                    <p class="card-text">Country: {{country}}</p>
+                    <p class="card-text">Zip Code: {{zipCode}}</p>
+                    <p class="card-text">Cell Phone: {{phone}}</p>
+                    <p class="card-text">Price: {{price}}</p>
+                    <p class="card-text">Check-In: {{checkIn}}</p>
+                    <p class="card-text">Check-Out: {{checkOut}}</p>
+                    <button class="btn btn-dark" (click)="deleteBooking()">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="container-fluid" id="myDiv" *ngIf="rateCard" style="max-width: 12rem; margin-top: 45px">
+            <div class="card text-white bg-secondary mb-3" id="card">
+                <div class="card-header">Rate your Booking</div>
+                <div class="card-body">
+                    <div class="lead"> Your feedback is really important for us!</div>
+                    <ngb-rating [(rate)]="currentRate">
+                        <ng-template let-fill="fill" let-index="index">
+                            <span class="star" [class.filled]="fill === 100">&#9733;</span>
+                        </ng-template>
+                    </ngb-rating>
+                    <button class="btn btn-dark" (click)="rating(currentRate)">Rate</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

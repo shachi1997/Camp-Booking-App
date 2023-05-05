@@ -1,0 +1,81 @@
+<div class="image">
+    <div class="row">
+        <div class="col">
+            <div class="card border-secondary mb-3" id="special-card" style="width: 18rem; margin-top: 35px;">
+                <div class="card-header">Search</div>
+                <div class="card-body text-dark">
+                    <div class="card-text">
+                        <form class="form-group" novalidate [formGroup]="SearchForm">
+                            <div class="form-group form-group-lg">
+                                <label for="checkIn">Check-In</label>
+                                <input type="date" class="form-control" id="checkIn" value="2013-01-08" formControlName="CheckIn" placeholder="Check-In">
+                            </div>
+                            <br>
+                            <div class="form-group form-group-lg">
+                                <label for="checkOut">Check-Out</label>
+                                <input type="date" class="form-control input-lg" value="02-09-2020" id="checkOut" formControlName="CheckOut">
+                            </div>
+                            <br>
+                            <div class="form-group form-group-lg">
+                                <label for="capacity">Capacity</label>
+                                <select class="form-control" formControlName="Capacity" id="capacity">   
+                                    <option *ngFor="let capacity of capacityArray">{{capacity}}</option>
+                                </select>
+                            </div>
+                            <br>
+                            <div>
+                                <button class="btn btn-success btn-block" type="submit" (click)="searchCamps()">Search Camps</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card border-secondary mb-3" id="special-card2" style="width: 59rem; margin-right: 7%; margin-top: 35px;">
+                <!-- <div class="card-header">Available Camps</div> -->
+                <div class="card-body text-dark" id="card">
+                    <div class="card-text">
+                        <table class="table table-striped table-hover" *ngIf="camps && camps.length > 0 ; else noCamps">
+
+                            <tbody>
+                                <tr *ngFor="let c of camps | paginate: { id: 'paging',
+                                                           itemsPerPage: pageSize,
+                                                           currentPage: page,
+                                                           totalItems: totalRecords }">
+                                    <td>
+                                        <img src="data:image/JPEG;base64,{{c.CampImage}}" style="width: 180px; margin-top: 25px; height: 160px;">
+                                        <p>Rating:
+                                            <ngb-rating [(rate)]=c.Rating>
+                                                <ng-template let-fill="fill" let-index="index">
+                                                    <span class="star" [class.filled]="fill === 100">&#9733;</span>
+                                                </ng-template>
+                                            </ngb-rating>
+                                        </p>
+                                    </td>
+                                    <td class="camp"><b>{{ c.CampName}}</b></td>
+                                    <td class="camp">{{ c.Description }}</td>
+                                    <td class="camp"><i>Maximum Person: </i>{{ c.Capacity }}</td>
+                                    <td><b>Price:</b> INR {{ c.PriceForWeekDays }} per night on Weekends <br>and INR {{ c.PriceForWeekEnds}} per night on weekdays</td>
+                                    <td class="camp">
+                                        <button class="btn btn-sm btn-info" (click)=navigateToBook(c.CampID)>Book Now</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <pagination-controls id="paging" (pageChange)="page=$event" maxSize="10" autoHide="true" responsive="true">
+                        </pagination-controls>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<ng-template #noCamps>
+    <div class="alert alert-default">
+        <div class="row">
+            <span><h4>Welcome to Valley Forge Camp Booking,</h4> <br>To explore many exciting and adventurous camps,<br> search for camps according to your requirements!!
+          </span>
+        </div>
+    </div>
+</ng-template>

@@ -1,0 +1,56 @@
+<div class="container">
+    <form class="form-group" novalidate [formGroup]="UpdateForm" (ngSubmit)="onFormUpdate(CampID)">
+        <div class="row">
+            <div class="col">
+                <div>
+                    <img [src]="previewUrl" style="width:360px;height:420px" id="image">
+                    <br>
+                    <br>
+                    <input type="file" accept="image/*" (change)="handleFileInput($event)" class="addImg">
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label for="name">Camp Name</label>
+                    <input type="text" [(ngModel)]="CampName" class="form-control" id="name" formControlName="CampName">
+                </div>
+                <div *ngIf="validate.CampName.touched && validate.CampName.invalid" class="alert alert-danger">
+                    <div *ngIf="validate.CampName.errors.required">Camp Name is required!</div>
+                </div>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <input type="text" [(ngModel)]="Description" class="form-control" id="description" formControlName="Description">
+                </div>
+                <div *ngIf="validate.Description.touched && validate.Description.invalid" class="alert alert-danger">
+                    <div *ngIf="validate.Description.errors.required">Description is required!</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="capacity">Capacity</label>
+                    <input type="number" [(ngModel)]="Capacity" class="form-control" id="capacity" formControlName="Capacity">
+                </div>
+                <div *ngIf="validate.Capacity.touched && validate.Capacity.invalid" class="alert alert-danger">
+                    <div *ngIf="validate.Capacity.errors.required">Capacity is required!</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="weekdays">Per night price for Weekdays(INR)</label>
+                    <input type="number" [(ngModel)]="WeekDays" class="form-control" id="weekdays" formControlName="WeekDays">
+                </div>
+                <div *ngIf="validate.WeekDays.touched && validate.WeekDays.invalid" class="alert alert-danger">
+                    <div *ngIf="validate.WeekDays.errors.required">Price is required!</div>
+                </div>
+                <div class="form-group">
+                    <label for="weekends">Per night price for Weekends(INR)</label>
+                    <input type="number" [(ngModel)]="WeekEnds" class="form-control" id="weekends" formControlName="WeekEnds">
+
+                </div>
+                <div *ngIf="validate.WeekEnds.touched && validate.WeekEnds.invalid" class="alert alert-danger">
+                    <div *ngIf="validate.WeekEnds.errors.required">Price is required!</div>
+                </div>
+                <button class="btn btn-success btn-block" type="submit" [disabled]="!UpdateForm.valid">Update Camp</button>
+
+            </div>
+        </div>
+    </form>
+</div>

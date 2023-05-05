@@ -1,0 +1,27 @@
+.image {
+    height: 40em;
+    background-size: cover;
+    width: auto;
+    background-image: url('../../../assets/image1tent.jpg');
+    background-position: 50% 50%;
+}
+
+#special-card,
+#special-card2 {
+    background-color: rgb(218, 230, 212);
+    border-color: 12px green;
+    opacity: .9;
+}
+
+#paging {
+    text-align: center;
+}
+
+.star {
+    font-size: 1.5rem;
+    color: white;
+}
+
+.filled {
+    color: goldenrod;
+}

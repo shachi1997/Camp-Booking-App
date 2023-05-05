@@ -1,0 +1,21 @@
+* {
+    align-items: center;
+}
+
+.image {
+    height: 40em;
+    background-size: cover;
+    width: auto;
+    background-image: url('../../../assets/image1tent.jpg');
+    background-position: 60% 60%;
+}
+
+.heading {
+    color: black;
+    text-shadow: 3px 3px 6px rgba(131, 154, 186, 1);
+    text-align: center;
+}
+
+.form-group {
+    padding: 3px;
+}

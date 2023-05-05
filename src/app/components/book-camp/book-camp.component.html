@@ -1,0 +1,70 @@
+<div class="image">
+    <br/>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4 col-sm-4 col-xs-12"></div>
+            <div class="col-md-4 col-sm-4 col-xs-12">
+                <form class="needs-validation" [formGroup]="BookCampForm" id="form" (ngSubmit)="onFormSubmit()">
+                    <div class="caption">
+                        <h1 class="heading">Book Camp</h1>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <div class="input-group-prepend md-4">
+                            <input type="text" class="form-control" id="address" formControlName="Address" placeholder="Billing Address" required>
+                        </div>
+                        <div *ngIf="validate.Address.touched && validate.Address.invalid" class="alert alert-danger">
+                            <div *ngIf="validate.Address.errors.required">Address is required field.</div>
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group-prepend md-4">
+                            <input type="text" class="form-control" id="state" formControlName="State" placeholder="State" required>
+                        </div>
+
+                        <div *ngIf="validate.State.touched && validate.State.invalid" class="alert alert-danger">
+                            <div *ngIf="validate.State.errors.required">State is required field.</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="input-group-prepend md-4">
+                            <input type="text" class="form-control" id="country" formControlName="Country" placeholder="Country" required>
+                        </div>
+                        <div *ngIf="validate.Country.touched && validate.Country.invalid" class="alert alert-danger">
+                            <div *ngIf="validate.Country.errors.required">Country is required field.</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="input-group-prepend md-4">
+                            <input type="text" class="form-control" id="code" formControlName="ZipCode" placeholder="Zip Code" required>
+                        </div>
+                        <div *ngIf="validate.ZipCode.touched && validate.ZipCode.invalid" class="alert alert-danger">
+                            <div *ngIf="validate.ZipCode.errors.required">Zip Code is required.</div>
+                            <div *ngIf="validate.ZipCode.errors.maxlength">Zip Code must be of 6 digits</div>
+                            <div *ngIf="validate.ZipCode.errors.minlength">Zip Code must be of 6 digits</div>
+                            <div *ngIf="validate.Phone.errors.pattern">Zip Code must be in digits</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="input-group-prepend md-4">
+                            <input type="text" class="form-control" id="phone" formControlName="Phone" placeholder="Cell Phone" required>
+                        </div>
+                        <div *ngIf="validate.Phone.touched && validate.Phone.invalid" class="alert alert-danger">
+                            <div *ngIf="validate.Phone.errors.required">Phone is required.</div>
+                            <div *ngIf="validate.Phone.errors.maxlength">Phone must be of 10 digits</div>
+                            <div *ngIf="validate.Phone.errors.minlength">Phone must be of 10 digits</div>
+                            <div *ngIf="validate.Phone.errors.pattern">Phone must be in digits</div>
+                        </div>
+                    </div>
+                    <br/>
+                    <button class="btn btn-danger btn-block" type="submit" [disabled]="!BookCampForm.valid">Confirm Booking</button>
+                </form>
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-12"></div>
+        </div>
+    </div>
+</div>
